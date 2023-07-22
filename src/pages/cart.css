@@ -34,3 +34,44 @@
     background:#ff002f;
     border:none;
 }
+.cart-product-list{
+    max-width: 1280px;
+    height: auto;
+    border-radius: 10px;
+   border: 1px solid #ccc;
+    margin: 0 auto;
+    margin-top: 52px;
+    display: grid;
+    grid-template-columns:repeat(4,1fr);
+    position: relative;
+    place-items: center;
+}
+.btn-submit{
+    width: 110px;
+    border: none;
+}
+.product-remove{
+position: absolute;
+right: 10px;
+top:10px;
+
+}
+.delete{
+    width: 30px;
+    height: 30px;
+    fill: #ffdee4;
+}
+.total{
+max-width: 1280px;
+height: auto;
+border-radius: 10px;
+border: 1px solid #ccc;
+margin: 0 auto;
+margin-top: 52px;
+display: grid;
+grid-template-columns:repeat(3,1fr);
+position: relative;
+place-items: center;
+margin-bottom: 200px;
+background-color: #e4e4e4fe;
+}

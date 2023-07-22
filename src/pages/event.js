@@ -1,10 +1,11 @@
 import { useEffect } from "react";
-import axios from "axios";
+
 import Product from "../component/product";
+import { getProducts } from "../service/fetcher";
 
 const Event = ({ products, setProducts, categoryName }) => {
   useEffect(() => {
-    axios.get("/data/products.json").then((data) => {
+    getProducts().then((data) => {
       const categoryName = "event";
       const categoryItems = data.data.categories[categoryName];
       setProducts(categoryItems);

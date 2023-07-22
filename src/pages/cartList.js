@@ -1,5 +1,6 @@
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
-import { TiDeleteOutline } from "react-icons/ti";
+import { TiDelete } from "react-icons/ti";
+import "./cart.css";
 
 const CartList = () => {
   return (
@@ -12,23 +13,22 @@ const CartList = () => {
 
         <div className="cart-product-info">
           <p className="product-name">주사위캔디 33g</p>
-          <p className="price">100원</p>
+          <p className="basket-price">100원</p>
           <p className="delivery">택배배송/ 3000원</p>
-        </div>
-
-        <div className="amount">
-          <AiOutlineMinus className="minus" />
-          <span>1개</span>
-          <AiOutlinePlus className="plus" />
         </div>
       </div>
 
+      <div className="amount">
+        <AiOutlineMinus className="minus" />
+        <span>1개</span>
+        <AiOutlinePlus className="plus" />
+      </div>
       <div className="cart-product-price">
         <p className="total-price"></p>
         <button className="btn-submit">주문하기</button>
 
         <div className="product-remove">
-          <TiDeleteOutline />
+          <TiDelete className="delete" />
         </div>
       </div>
     </section>

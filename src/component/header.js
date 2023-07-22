@@ -35,7 +35,7 @@ const Header = () => {
             <a href="/">홈</a>
           </li>
           <li>
-            <Link to="/main">전체상품</Link>
+            <a href="/phome">전체상품</a>
           </li>
           <li>
             <a href="/event">이벤트상품</a>

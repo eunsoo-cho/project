@@ -27,7 +27,6 @@ const Register = () => {
         navigate("/login");
         alert("회원가입이 완료되었습니다. 로그인해주세요");
         console.log(user);
-        // 회원가입 성공 시 추가적인 작업 수행
       } catch (error) {
         const errorCode = [
           "auth/invalid-email",
