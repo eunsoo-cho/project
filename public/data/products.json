@@ -1,0 +1,71 @@
+{
+ 
+    "categories":{
+    "event":[
+        {
+            "id": 1,
+            "name": "주사위캔디 33g",
+            "discount": "90%",
+            "price": "100원",
+            "image": "/image/candy.jpg",
+            "dsc":"주사위 모양 캔디입니다.",
+            "isEvent":true
+        },
+        {
+            "id": 2,
+            "name": "프루트팝 롤리팝 막대사탕 2kg*6봉",
+            "discount": "68%",
+            "price": "38900원",
+            "image": "/image/longcandy.jpg",
+            "dsc":"막대사탕 낱개 사이즈가 UP된 4가지 과일맛(레몬/오렌지/딸기/포도)이 약 125개가 들어있는 대용량 롤리팝 캔디",
+            "isEvent":true
+        },
+        {
+            "id": 3,
+            "name": "쵸키 밀크 30g*144개",
+            "discount": "54%",
+            "price": "32900원",
+            "image": "/image/milk.jpg",
+            "dsc":"바삭한 식감의 웨이퍼 속에 달콤한 밀크 크림이 더해져 더욱 맛있는 과자",
+            "isEvent":true
+        },
+        {
+            "id": 4,
+            "name": "치킨솔트 앤 허브맛 씬베이크드 12개",
+            "discount": "49%",
+            "price": "18490원",
+            "image": "/image/salt.jpg",
+            "dsc":"쌀 겨로 만든 미강유를 사용해 튀기지 않고 구워 만든 바삭한 식감의 얇은 크래커로 고소한 쌀과 치킨솔트&허브가 만난 글루텐 프리 건강한 과자",
+            "isEvent":true
+        },
+        {
+            "id": 5,
+            "name": "엉클팝 길쭉이 보리 곡물 과자 400g",
+            "discount": "3%",
+            "price": "3510원",
+            "image": "/image/rice.jpg",
+            "isEvent":false
+        }
+       ],
+        "cookie":[
+        {
+            "id": 6,
+            "name": "토르토 화이트캐슬 초코릿칩 버터쿠키 100g",
+            "discount": "3%",
+            "price": "890원",
+            "image": "/image/cookie.jpg",
+            "isEvent":false,
+            "dsc":"정통 유럽방식 그대로 구워넨 데니쉬 버터쿠키에 몸에 좋은 초콜릿칩을 첨가하여 부드러운 맛과 달콤한 맛이 있는 영양만점 쿠키"
+        },
+        {
+            "id": 7,
+            "name": "조은식품 꼬끼오 스낵 매콤카레맛 닭다리 과자 120g",
+            "discount": "3%",
+            "price": "890원",
+            "image": "/image/chicken.jpg",
+            "isEvent":false,
+            "dsc":"바삭한 식감의 매콤한 카레맛이 일품인 추억의 닭다리 모양 스낵"
+        }
+    ]
+}
+}

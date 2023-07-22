@@ -1,11 +1,12 @@
 import React, { useState, useCallback } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase-config";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
-
+  const navigate = useNavigate();
   const handleRegisterEmailChange = useCallback((event) => {
     setRegisterEmail(event.target.value);
   }, []);
@@ -23,14 +24,32 @@ const Register = () => {
           registerEmail,
           registerPassword
         );
+        navigate("/login");
+        alert("회원가입이 완료되었습니다. 로그인해주세요");
         console.log(user);
         // 회원가입 성공 시 추가적인 작업 수행
       } catch (error) {
-        console.log(error.message);
-        // 회원가입 실패 시 에러 처리
+        const errorCode = [
+          "auth/invalid-email",
+          "auth/email-already-in-use",
+          "auth/invalid-password",
+          "auth/weak-password",
+        ];
+        const errorAlertMsg = [
+          "올바른 형식의 이메일을 사용해주세요",
+          "중복된 이메일입니다. 다른이메일을 사용해주세요",
+          "패스워드는 6자 이상이어야 합니다.",
+          "패스워드는 6자 이상이어야 합니다.",
+        ];
+        console.log(error.code);
+        for (const i in errorCode) {
+          if (error.code === errorCode[i]) {
+            alert(errorAlertMsg);
+          }
+        }
       }
     },
-    [registerEmail, registerPassword]
+    [registerEmail, registerPassword, navigate]
   );
 
   return (

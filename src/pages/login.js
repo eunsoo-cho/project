@@ -28,10 +28,8 @@ const Login = () => {
           loginPassword
         );
         console.log(user);
-        // 로그인 성공 시 추가적인 작업 수행
       } catch (error) {
         console.log(error.message);
-        // 로그인 실패 시 에러 처리
       }
     },
     [loginEmail, loginPassword]
@@ -54,7 +52,7 @@ const Login = () => {
   };
 
   return (
-    <form id="로그인폼" className="login-form">
+    <form id="login-form" className="login-form">
       <h3>회원로그인</h3>
       <label htmlFor="login-email">이메일</label>
       <input

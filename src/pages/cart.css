@@ -1,0 +1,36 @@
+
+.header{
+    display: flex;
+    justify-content: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    margin-top: 54px;
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-weight: bold;
+}
+.title-table{
+    max-width: 1280px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: #ffdee4;
+    margin: 0 auto;
+    margin-top: 52px;
+    display: grid;
+    grid-template-columns:repeat(4,1fr);
+    place-items: center;
+}
+.title-table span{
+    background: #ffdee4;
+}
+.title-table input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+    border:2px solid #ccc;
+    appearance: none;
+    cursor: pointer;
+}
+.title-table input[type="checkbox"]:checked{
+    background:#ff002f;
+    border:none;
+}

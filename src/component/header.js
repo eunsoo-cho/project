@@ -14,7 +14,7 @@ const Header = () => {
             style={{ width: "50px", height: "50px" }}
             alt="이미지"
           />
-          뚜비마켓
+          냠냠마켓
         </Link>
 
         <div className="login">
@@ -35,7 +35,7 @@ const Header = () => {
             <a href="/">홈</a>
           </li>
           <li>
-            <a href="/products">전체상품</a>
+            <Link to="/main">전체상품</Link>
           </li>
           <li>
             <a href="/event">이벤트상품</a>

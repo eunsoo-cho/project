@@ -199,3 +199,228 @@ header {
   .google-button:hover {
     background-color: #ccc;
   }
+
+  /* products 페이지 */
+  .products-container {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    margin-left: 100px;
+    justify-content: space-between;
+    max-width: 800px; 
+  }
+  
+  .title{
+    margin-left: 180px;
+    font-size: 25px;
+    letter-spacing: -1;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 50px;
+  }
+  .image-box{
+    position: relative;
+    height: 200px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+  .product-img{
+    width: 180px;
+  }
+  
+
+  .dsc-product{
+    top:205px ;
+    position: absolute;
+    justify-content: center;
+    width: 200px;
+   
+  }
+  .total-name{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 15px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+  }
+  .total-discount{
+    
+    color: blue;
+    font-weight: bold;
+  
+    
+  }
+  .dsc-product-two{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+  }
+  
+  
+  .total-price{
+    display: inline;
+  
+  }
+  .flex-container{
+    display: flex;
+    flex-direction: row;
+    margin-left:80px ;
+    flex-wrap: wrap;
+    gap: 100px 20px
+  }
+
+  /* detail 부분 css */
+
+  .product-detail-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  .product-image {
+    flex: 1;
+    margin-right: 20px;
+    position: relative;
+    
+  }
+  
+  .product-image img {
+    width: 500px;
+    margin-top: 40px;
+    max-width: 500px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-left:180px;
+  }
+  
+  .product-info {
+    flex:1;
+    top: 180px;
+    left: 850px;
+    position: absolute;
+   
+  }
+  
+  .product-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .product-price {
+    font-size: 17px;
+    color: #f00; 
+    margin: 0;
+    font-weight: bold;
+    margin-bottom: 100px;
+
+  }
+  
+  .product-description {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #9a9999;
+    width: 400px;
+  }
+  .divider-line {
+    border-bottom: 1px solid #ccc;
+    margin-top: 10px;
+    width: 400px;
+ 
+  }
+  .product-discount{
+    font-size: 17px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #5d5b5b;
+  }
+  .product-discount{
+    color: #5d5b5b;
+  }
+  .delivery{
+    color: #5d5b5b;
+    
+  }
+  .total-price{
+    display: flex;
+    margin: 0;
+    margin-top: 10px;
+    justify-content: space-between;
+    font-weight: bold;
+  }
+  .total-count{
+    display: inline-block;
+    color: #9a9999;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+  .total-count p{
+    display: inline;
+    margin-left: 10px;
+    font-size:18px;
+    color: black;
+    font-weight: bold;
+  }
+button{
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.wishlist-button{
+  border: 1px solid #ccc;
+  background-color: transparent;
+  width: 50px;
+  height: 45px;
+
+}
+.wish-Heart{
+ fill: #f00;
+ width: 20px;
+  height:20px;
+ 
+}
+.purchase{
+  border: 1px solid #ffdee4;
+  background-color: bisque;
+  width: 160px;
+  color: #d08829;
+  font-weight: bold;
+  
+
+}
+.basket-button{
+  border: 1px solid #ffdee4;
+  background-color: #ffdee4;
+  width: 160px;
+  color:#f84c69;
+  font-weight: bold;
+}
+.amount{
+  border: 1px solid #ccc;
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ border-radius: 5px;
+ padding: 5px;
+ margin-top: 10px;
+}
+.minus{
+  width:30px;
+  cursor: pointer;
+}
+.plus{
+  width: 30px;
+  cursor: pointer;
+}
