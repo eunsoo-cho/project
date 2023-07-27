@@ -1,14 +1,15 @@
 import React, { useState, useCallback } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth, provider } from "../firebase-config";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { signInWithPopup } from "firebase/auth";
 
-const Login = () => {
+const Login = ({ setIsLoggedIn }) => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   const handleLoginEmailChange = useCallback((event) => {
     setLoginEmail(event.target.value);
@@ -28,16 +29,15 @@ const Login = () => {
           loginPassword
         );
         console.log(user);
+        setIsLoggedIn(true);
+        navigate("/");
       } catch (error) {
         console.log(error.message);
       }
     },
-    [loginEmail, loginPassword]
+    [loginEmail, loginPassword, navigate, setIsLoggedIn]
   );
 
-  const handleLogout = () => {
-    setUser(null);
-  };
   const handleGoogleLogin = () => {
     console.log("구글로그인");
     signInWithPopup(auth, provider)
@@ -77,14 +77,13 @@ const Login = () => {
       </button>
       {user ? (
         <>
-          <button className="logout-button" onClick={handleLogout}>
-            Logout
-          </button>
+          <button className="logout-button">Logout</button>
           <h3>welcome {user.displayName}</h3>
         </>
       ) : (
         <button
           id="구글로그인"
+          type="button"
           className="google-button"
           onClick={handleGoogleLogin}
         >

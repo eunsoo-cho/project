@@ -23,7 +23,7 @@ const MyCarousel = () => {
         )
       }
       showThumbs={false}
-      autoPlay={false}
+      autoPlay={true}
     >
       <div className="carousel-slide">
         <div className="image-wrapper">

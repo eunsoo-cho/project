@@ -1,4 +1,4 @@
-const CartHeader = ({ handleAllCheck, isAllChecked }) => {
+const WishHeader = ({ handleAllCheck, isAllChecked }) => {
   return (
     <>
       <div className="title-wrap">
@@ -19,4 +19,4 @@ const CartHeader = ({ handleAllCheck, isAllChecked }) => {
   );
 };
 
-export default CartHeader;
+export default WishHeader;

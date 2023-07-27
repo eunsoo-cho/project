@@ -71,6 +71,16 @@ header {
   .login a:hover {
     color: #FFC0CB
   }
+  .logout{
+    color: #FFC0CB
+  }
+  .logout{
+    margin-right: 10px;
+    color: #000;
+    text-decoration: none;
+    border: none;
+  }
+  
   input[type="text"] {
     padding: 8px;
     background-color: #ffdee4;
@@ -78,6 +88,7 @@ header {
     border-radius: 6px;
     outline: none;
     width: 300px;
+    position: relative;
   }
   
   input[type="text"]::placeholder {
@@ -87,4 +98,20 @@ header {
     border: none;
     background-color: transparent;
   }
-  
+  .autoWord{
+    border: 1px solid #fff1f4;
+    position:absolute;
+    top:124px;
+    margin-left:340px;
+    width:305px;
+    background-color: #fff1f4;
+    border-right:0;
+    border-left: 0;
+    padding: 5px;
+    font-size: 10px;
+
+  }
+  .autoword-key{
+    font-size: 7px;
+ 
+  }

@@ -11,45 +11,106 @@ import Goods from "./pages/goods";
 import Event from "./pages/event";
 import Food from "./pages/food";
 import Basket from "./pages/basket";
-import Cart from "./pages/cart";
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
+  const [wishList, setWishList] = useState([]);
+  const [checkLists, setCheckLists] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [total, setTotal] = useState(0);
+  const converPrice = (price) => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  };
 
-  const [cart, setCart] = useState({});
-
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
   return (
     <BrowserRouter>
       <div className="App">
-        <Header />
+        <Header
+          isLoggedIn={isLoggedIn}
+          setIsLoggedIn={setIsLoggedIn}
+          handleLogout={handleLogout}
+          products={products}
+          setProducts={setProducts}
+        />
         <Routes>
           <Route
             path="/"
             element={<Home products={products} setProducts={setProducts} />}
           />
-          <Route path="/login" element={<Login />} />
+          <Route
+            path="/login"
+            element={<Login setIsLoggedIn={setIsLoggedIn} />}
+          />
           <Route path="/register" element={<Register />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/wishlist" element={<Wishlist />} />
+          <Route
+            path="/cart"
+            element={
+              <Basket
+                cart={cart}
+                setCart={setCart}
+                checkLists={checkLists}
+                setCheckLists={setCheckLists}
+                total={total}
+                setTotal={setTotal}
+              />
+            }
+          />
+
+          <Route
+            path="/wishlist"
+            element={
+              <Wishlist
+                wishList={wishList}
+                setWishList={setWishList}
+                checkLists={checkLists}
+                setCheckLists={setCheckLists}
+              />
+            }
+          />
           <Route
             path="/phome"
-            element={<Phome products={products} setProducts={setProducts} />}
+            element={
+              <Phome
+                products={products}
+                setProducts={setProducts}
+                converPrice={converPrice}
+              />
+            }
           />
           <Route
             path="/event"
-            element={<Event products={products} setProducts={setProducts} />}
+            element={
+              <Event
+                products={products}
+                setProducts={setProducts}
+                converPrice={converPrice}
+              />
+            }
           />
           <Route
             path="/food"
-            element={<Food products={products} setProducts={setProducts} />}
+            element={
+              <Food
+                products={products}
+                setProducts={setProducts}
+                converPrice={converPrice}
+              />
+            }
           />
           <Route
             path="/goods/:id"
-            element={<Goods cart={cart} setCart={setCart} />}
-          />
-          <Route
-            path="/basket"
-            element={<Basket cart={cart} setCart={setCart} />}
+            element={
+              <Goods
+                cart={cart}
+                setCart={setCart}
+                wishList={wishList}
+                setWishList={setWishList}
+              />
+            }
           />
         </Routes>
       </div>

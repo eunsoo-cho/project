@@ -217,7 +217,7 @@ header {
     font-weight: bold;
     color: #333;
     margin-top: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
   }
   .image-box{
     position: relative;
@@ -423,4 +423,20 @@ button{
 .plus{
   width: 30px;
   cursor: pointer;
+}
+/* main */
+
+.filter-container{
+  display: flex;
+  margin-right: 160px;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+
+}
+.filtername{
+  margin-right: 20px;
+  color: #333;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: 500;
 }

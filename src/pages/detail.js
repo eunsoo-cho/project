@@ -1,17 +1,15 @@
 import { useEffect } from "react";
 import { BsFillSuitHeartFill } from "react-icons/bs";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
-import { Link, useParams } from "react-router-dom";
-
+import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { getProducts } from "../service/fetcher";
 
-const Detail = () => {
+const Detail = ({ cart, setCart, wishList, setWishList }) => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
-  const [loading, setLoading] = useState(true);
   const [count, setCount] = useState(1);
-  const [cart, setCart] = useState([]);
+  const price = parseFloat(product.price);
 
   const handleAmount = (type) => {
     if (type === "plus") {
@@ -23,17 +21,17 @@ const Detail = () => {
   };
   //장바구니에 물건 중복된 물건
   const setQuantity = (id, quantity) => {
-    const found = cart.filter((el) => el.id === id[0]);
+    const found = cart.filter((el) => el.id === id)[0];
     const idx = cart.indexOf(found);
     const cartItem = {
       id: product.id,
       image: product.image,
       name: product.name,
-      price: product.price,
       quantity: quantity,
     };
     setCart([...cart.slice(0, idx), cartItem, ...cart.slice(idx + 1)]);
   };
+
   const handleCart = () => {
     const cartItem = {
       id: product.id,
@@ -42,7 +40,6 @@ const Detail = () => {
       price: product.price,
       quantity: count,
     };
-
     const found = cart.find((el) => el.id === cartItem.id);
     if (found) setQuantity(cartItem.id, found.quantity + count);
     else setCart([...cart, cartItem]);
@@ -50,31 +47,41 @@ const Detail = () => {
 
   console.log(cart);
 
-  useEffect(() => {
-    getProducts()
-      .then((data) => {
-        const categoryNames = ["event", "cookie"];
-        const foundProduct = categoryNames
-          .map((categoryName) => data.data.categories[categoryName])
-          .flat()
-          .find((item) => item.id === parseInt(id));
+  const setWishQuantity = (id, quantity) => {
+    const found = wishList.filter((el) => el.id === id)[0];
+    const idx = wishList.indexOf(found);
+    const cartItem = {
+      id: product.id,
+      image: product.image,
+      name: product.name,
+      quantity: quantity,
+    };
+    setCart([...cart.slice(0, idx), cartItem, ...cart.slice(idx + 1)]);
+  };
 
-        if (foundProduct) {
-          foundProduct.price = parseInt(foundProduct.price);
-          setProduct(foundProduct);
-        } else {
-          console.error("Product not found!");
-        }
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-        setLoading(false);
-      });
+  const handleWishlist = () => {
+    const wishlistItem = {
+      id: product.id,
+      image: product.image,
+      name: product.name,
+      price: product.price,
+      quantity: count,
+    };
+    const found = wishList.find((item) => item.id === wishlistItem.id);
+    if (found) setWishQuantity(wishlistItem.id, found.quantity + count);
+    setWishList([...wishList, wishlistItem]);
+  };
+
+  useEffect(() => {
+    getProducts().then((data) => {
+      const allItems = [
+        ...data.data.categories["event"],
+        ...data.data.categories["cookie"],
+      ];
+      setProduct(allItems.find((product) => product.id === parseInt(id)));
+    });
   }, [id]);
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+
   return (
     product && (
       <>
@@ -107,14 +114,15 @@ const Detail = () => {
             <div className="total-price">
               총상품금액
               <div className="total-count">
-                총수량 {count}개<p>{product.price * count}원</p>
+                총수량 {count}개<p>{price * count}원</p>
               </div>
             </div>
-            <Link to="/wishlist">
-              <button className="wishlist-button">
-                <BsFillSuitHeartFill className="wish-Heart" />
-              </button>
-            </Link>
+            <button
+              className="wishlist-button"
+              onClick={() => handleWishlist()}
+            >
+              <BsFillSuitHeartFill className="wish-Heart" />
+            </button>
             <button className="purchase">구매하기</button>/
             <button className="basket-button" onClick={() => handleCart()}>
               장바구니
