@@ -140,7 +140,7 @@ border-radius: 20px;
   bottom: 0;
   left: 75%;
   width: 1px;
-  background-color: rgb(184, 179, 179); /* 원하는 선의 색상으로 설정 */
+  background-color: rgb(184, 179, 179); 
   transform: translateX(10%);
   z-index: 10;
   height: 220px;
