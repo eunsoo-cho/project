@@ -14,13 +14,6 @@ const Wishlist = ({
     setCheckLists(checkLists.filter((check) => check !== id));
   };
 
-  // const handleCheckList = (checked, id) => {
-  //   if (checked) {
-  //     setCheckLists([...checkLists, id]);
-  //   } else {
-  //     setCheckLists(checkLists.filter((check) => check !== id));
-  //   }
-  // };
   const handleCheckList = (checked, id) => {
     if (checked) {
       setCheckLists((prevCheckLists) => [...prevCheckLists, id]);

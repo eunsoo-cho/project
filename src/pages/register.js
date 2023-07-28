@@ -41,12 +41,9 @@ const Register = () => {
           "패스워드는 6자 이상이어야 합니다.",
         ];
         console.log(error.code);
-        // for (const i in errorCode) {
-        //   if (error.code === errorCode[i]) {
-        //     alert(errorAlertMsg);
+
         const index = errorCode.indexOf(error.code);
 
-        // 인덱스가 -1이 아니라면, 해당 에러 메시지를 출력하고 함수를 종료합니다.
         if (index !== -1) {
           alert(errorAlertMsg[index]);
           return;

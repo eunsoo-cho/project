@@ -18,7 +18,7 @@ const WishTotal = ({
       prevWishlist.filter((item) => !checkLists.includes(item.id))
     );
     setCheckLists([]);
-    setCart((prevCart) => [...prevCart, ...selectedItems]); // 장바구니를 관리하는 상태 변수 'cart'와 해당 상태를 업데이트하는 setter 함수 'setCart'가 있다고 가정합니다.
+    setCart((prevCart) => [...prevCart, ...selectedItems]);
   };
   const handleClearWishlist = () => {
     setWishList([]);
