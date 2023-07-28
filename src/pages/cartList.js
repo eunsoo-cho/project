@@ -20,13 +20,16 @@ const CartList = ({
       />
       <div className="cart-product-wrap">
         <div className="cart-product-image">
-          <img src={cart.image} alt="캔디이미지" />
+          <img
+            className="cart-product-image-img"
+            src={cart.image}
+            alt="캔디이미지"
+          />
         </div>
 
         <div className="cart-product-info">
           <p className="product-name">{cart.name}</p>
           <p className="basket-price">{cart.price}</p>
-          <p className="delivery">택배배송/ 3000원</p>
         </div>
       </div>
 

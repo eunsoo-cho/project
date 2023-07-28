@@ -63,7 +63,7 @@ const Header = ({
             style={{ width: "50px", height: "50px" }}
             alt="이미지"
           />
-          냠냠마켓
+          YumYum
         </Link>
 
         <div className="login">

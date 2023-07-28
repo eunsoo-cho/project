@@ -8,7 +8,6 @@ import { signInWithPopup } from "firebase/auth";
 const Login = ({ setIsLoggedIn }) => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-  const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   const handleLoginEmailChange = useCallback((event) => {
@@ -29,6 +28,7 @@ const Login = ({ setIsLoggedIn }) => {
           loginPassword
         );
         console.log(user);
+        localStorage.setItem("user", JSON.stringify(user));
         setIsLoggedIn(true);
         navigate("/");
       } catch (error) {
@@ -44,7 +44,8 @@ const Login = ({ setIsLoggedIn }) => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        setUser(user);
+        setIsLoggedIn(true);
+        navigate("/");
       })
       .catch((err) => {
         console.log(err);
@@ -75,22 +76,17 @@ const Login = ({ setIsLoggedIn }) => {
       <button className="log-button" onClick={handleLogin}>
         로그인
       </button>
-      {user ? (
-        <>
-          <button className="logout-button">Logout</button>
-          <h3>welcome {user.displayName}</h3>
-        </>
-      ) : (
-        <button
-          id="구글로그인"
-          type="button"
-          className="google-button"
-          onClick={handleGoogleLogin}
-        >
-          <FcGoogle />
-          Google 로그인
-        </button>
-      )}
+
+      <button
+        id="구글로그인"
+        type="button"
+        className="google-button"
+        onClick={handleGoogleLogin}
+      >
+        <FcGoogle />
+        Google 로그인
+      </button>
+
       <Link to="/register" className="re-button">
         회원가입
       </Link>

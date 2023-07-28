@@ -45,8 +45,6 @@ const Detail = ({ cart, setCart, wishList, setWishList }) => {
     else setCart([...cart, cartItem]);
   };
 
-  console.log(cart);
-
   const setWishQuantity = (id, quantity) => {
     const found = wishList.filter((el) => el.id === id)[0];
     const idx = wishList.indexOf(found);
@@ -56,7 +54,7 @@ const Detail = ({ cart, setCart, wishList, setWishList }) => {
       name: product.name,
       quantity: quantity,
     };
-    setCart([...cart.slice(0, idx), cartItem, ...cart.slice(idx + 1)]);
+    setCart([...wishList.slice(0, idx), cartItem, ...wishList.slice(idx + 1)]);
   };
 
   const handleWishlist = () => {
@@ -71,7 +69,7 @@ const Detail = ({ cart, setCart, wishList, setWishList }) => {
     if (found) setWishQuantity(wishlistItem.id, found.quantity + count);
     setWishList([...wishList, wishlistItem]);
   };
-
+  console.log(wishList);
   useEffect(() => {
     getProducts().then((data) => {
       const allItems = [

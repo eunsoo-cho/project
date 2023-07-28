@@ -5,7 +5,7 @@ import Wishlist from "./pages/wishlist";
 import Home from "./pages/home";
 import Header from "./component/header";
 import Register from "./pages/register";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Phome from "./pages/phome";
 import Goods from "./pages/goods";
 import Event from "./pages/event";
@@ -25,7 +25,14 @@ function App() {
 
   const handleLogout = () => {
     setIsLoggedIn(false);
+    localStorage.removeItem("user");
   };
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    if (user) {
+      setIsLoggedIn(true);
+    }
+  }, []);
   return (
     <BrowserRouter>
       <div className="App">
@@ -68,6 +75,7 @@ function App() {
                 setWishList={setWishList}
                 checkLists={checkLists}
                 setCheckLists={setCheckLists}
+                setCart={setCart}
               />
             }
           />

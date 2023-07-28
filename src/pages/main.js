@@ -1,9 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Product from "../component/product";
 import { getProducts } from "../service/fetcher";
 import "../App.css";
+import Pagination from "../component/pagination";
 
 const Main = ({ products, setProducts, categoryName, converPrice }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 8;
   useEffect(() => {
     getProducts().then((data) => {
       const allItems = [
@@ -27,6 +30,17 @@ const Main = ({ products, setProducts, categoryName, converPrice }) => {
       setProducts(newProduct);
     }
   };
+  const totalPages = Math.ceil(products.length / productsPerPage);
+
+  const handleChangePage = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const getCurrentProducts = () => {
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    return products.slice(indexOfFirstProduct, indexOfLastProduct);
+  };
 
   return (
     <>
@@ -43,7 +57,7 @@ const Main = ({ products, setProducts, categoryName, converPrice }) => {
         </p>
       </div>
       <div className="flex-container">
-        {products.map((product) => {
+        {getCurrentProducts().map((product) => {
           return (
             <Product
               key={`key-${product.id}`}
@@ -53,7 +67,13 @@ const Main = ({ products, setProducts, categoryName, converPrice }) => {
           );
         })}
       </div>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onChangePage={handleChangePage}
+      />
     </>
   );
 };
+
 export default Main;

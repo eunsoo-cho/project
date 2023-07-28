@@ -4,7 +4,7 @@
     "event":[
         {
             "id": 1,
-            "name": "주사위캔디 33g",
+            "name": "주사위캔디",
             "discount": "90%",
             "price": "100원",
             "image": "/image/candy.jpg",
@@ -40,7 +40,7 @@
         },
         {
             "id": 5,
-            "name": "엉클팝 길쭉이 보리 곡물 과자 400g",
+            "name": "엉클팝 길쭉이 보리 곡물 과자",
             "discount": "3%",
             "price": "3510원",
             "image": "/image/rice.jpg",
@@ -50,7 +50,7 @@
         "cookie":[
         {
             "id": 6,
-            "name": "토르토 화이트캐슬 초코릿칩 버터쿠키 100g",
+            "name": "토르토 화이트캐슬 초코릿칩 버터쿠키",
             "discount": "3%",
             "price": "890원",
             "image": "/image/cookie.jpg",
@@ -59,12 +59,66 @@
         },
         {
             "id": 7,
-            "name": "조은식품 꼬끼오 스낵 매콤카레맛 닭다리 과자 120g",
+            "name": "조은식품 꼬끼오 스낵 매콤카레맛 닭다리 과자",
             "discount": "3%",
             "price": "890원",
             "image": "/image/chicken.jpg",
             "isEvent":false,
             "dsc":"바삭한 식감의 매콤한 카레맛이 일품인 추억의 닭다리 모양 스낵"
+        },
+        {
+            "id": 8,
+            "name": "서주 버터 와플 쿠키",
+            "discount": "3%",
+            "price": "1000원",
+            "image": "/image/butterwaffle.jpg",
+            "isEvent":false,
+            "dsc":"바삭한 식감의 고급스런 버터향이 함유된 정통버터와플 쿠키"
+        },
+        {
+            "id": 9,
+            "name": "망고 구미 젤리",
+            "discount": "3%",
+            "price": "1020원",
+            "image": "/image/mango.jpg",
+            "isEvent":false,
+            "dsc":"망고 과즙이 들어간 구미젤리로 말랑말랑한 젤리"
+        },
+        {
+            "id": 10,
+            "name": "수케르 멜로 빅 라운드 머쉬멜로우",
+            "discount": "3%",
+            "price": "1020원",
+            "image": "/image/mashmellow.jpg",
+            "isEvent":false,
+            "dsc":"원형 라운드 형태의 빅 사이즈 머쉬멜로우"
+        },
+        {
+            "id": 11,
+            "name": "프레첼 허니머스타드맛",
+            "discount": "3%",
+            "price": "1100원",
+            "image": "/image/mustard.jpg",
+            "isEvent":false,
+            "dsc":"고소한 미국산 프레첼을 먹기좋게 잘게 부숴 한국인의 입맛에 딱맞는 과자"
+        },
+        {
+            "id": 12,
+            "name": "촉촉한 고구마",
+            "discount": "3%",
+            "price": "890원",
+            "image": "/image/sweetpotato.jpg",
+            "isEvent":false,
+            "dsc":"어떠한 첨가물도 사용하지 않은 100% 리얼고구마 말랭이 과자"
+        },
+        {
+            "id": 13,
+            "name": "서주 요구르트 젤리 ",
+            "discount": "3%",
+            "price": "810원",
+            "image": "/image/yogurt.jpg",
+            "isEvent":false,
+            "dsc":"요구르트 모양의 젤리 안에 진한 젤리가 있는 달콤한 간식"
         }
     ]
 }

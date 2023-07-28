@@ -2,17 +2,32 @@ import WishHeader from "./wishlistHeader";
 import WishListList from "./wishlistlist";
 import WishTotal from "./wishTotal";
 
-const Wishlist = ({ wishList, setWishList, checkLists, setCheckLists }) => {
-  const handleRemove = (id) => {
+const Wishlist = ({
+  setCart,
+  wishList,
+  setWishList,
+  checkLists,
+  setCheckLists,
+}) => {
+  const handleWishRemove = (id) => {
     setWishList(wishList.filter((el) => el.id !== id));
     setCheckLists(checkLists.filter((check) => check !== id));
   };
 
+  // const handleCheckList = (checked, id) => {
+  //   if (checked) {
+  //     setCheckLists([...checkLists, id]);
+  //   } else {
+  //     setCheckLists(checkLists.filter((check) => check !== id));
+  //   }
+  // };
   const handleCheckList = (checked, id) => {
     if (checked) {
-      setCheckLists([...checkLists, id]);
+      setCheckLists((prevCheckLists) => [...prevCheckLists, id]);
     } else {
-      setCheckLists(checkLists.filter((check) => check !== id));
+      setCheckLists((prevCheckLists) =>
+        prevCheckLists.filter((check) => check !== id)
+      );
     }
   };
 
@@ -39,24 +54,29 @@ const Wishlist = ({ wishList, setWishList, checkLists, setCheckLists }) => {
           <p>원하는 상품을 위시리스트에 담아보세요!</p>
         </div>
       ) : (
-        wishList.map((item) => {
+        wishList.map((wishList) => {
           return (
             <WishListList
-              key={`wishlist-${item.id}`}
+              key={`wishlist-${wishList.id}`}
               wishList={wishList}
-              handleRemove={handleRemove}
+              handleWishRemove={handleWishRemove}
               handleCheckList={handleCheckList}
               checkLists={checkLists}
             />
           );
         })
       )}
-      <WishTotal
-        wishList={wishList}
-        setWishList={setWishList}
-        checkLists={checkLists}
-        setCheckLists={setCheckLists}
-      />
+      {wishList.length === 0 ? (
+        ""
+      ) : (
+        <WishTotal
+          wishList={wishList}
+          setWishList={setWishList}
+          checkLists={checkLists}
+          setCheckLists={setCheckLists}
+          setCart={setCart}
+        />
+      )}
     </>
   );
 };

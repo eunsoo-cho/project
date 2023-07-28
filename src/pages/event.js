@@ -1,9 +1,21 @@
-import { useEffect } from "react";
-
+import { useEffect, useState } from "react";
 import Product from "../component/product";
 import { getProducts } from "../service/fetcher";
+import Pagination from "../component/pagination";
 
 const Event = ({ products, setProducts, categoryName, converPrice }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 8;
+
+  const getCurrentProducts = () => {
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    return products.slice(indexOfFirstProduct, indexOfLastProduct);
+  };
+  const handleChangePage = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+  const totalPages = Math.ceil(products.length / productsPerPage);
   useEffect(() => {
     getProducts().then((data) => {
       const categoryName = "event";
@@ -16,7 +28,7 @@ const Event = ({ products, setProducts, categoryName, converPrice }) => {
     <>
       <div className="title">이벤트 상품</div>
       <div className="flex-container">
-        {products.map((product) => {
+        {getCurrentProducts().map((product) => {
           return (
             <Product
               key={`key-${product.id}`}
@@ -26,6 +38,11 @@ const Event = ({ products, setProducts, categoryName, converPrice }) => {
           );
         })}
       </div>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onChangePage={handleChangePage}
+      />
     </>
   );
 };

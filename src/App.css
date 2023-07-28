@@ -255,6 +255,7 @@ header {
     
     color: blue;
     font-weight: bold;
+    margin: 0;
   
     
   }
@@ -268,6 +269,7 @@ header {
   
   .total-price{
     display: inline;
+    margin: 0;
   
   }
   .flex-container{
@@ -354,7 +356,7 @@ header {
   .total-price{
     display: flex;
     margin: 0;
-    margin-top: 10px;
+   margin-left: 5px;
     justify-content: space-between;
     font-weight: bold;
   }

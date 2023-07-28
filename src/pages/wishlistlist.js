@@ -3,7 +3,7 @@ import "./cart.css";
 
 const WishListList = ({
   wishList,
-  handleRemove,
+  handleWishRemove,
   handleCheckList,
   checkLists,
 }) => {
@@ -31,7 +31,7 @@ const WishListList = ({
       <div className="product-remove">
         <TiDelete
           className="delete"
-          onClick={() => handleRemove(wishList.id)}
+          onClick={() => handleWishRemove(wishList.id)}
         />
       </div>
     </section>

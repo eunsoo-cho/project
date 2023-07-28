@@ -3,6 +3,7 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./carousel.css";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const MyCarousel = () => {
   return (
@@ -41,7 +42,9 @@ const MyCarousel = () => {
               <p className="name">주사위캔디 33g</p>
               <p className="period">유통기한:2024-08-26</p>
             </div>
-            <button className="gobutton">바로구매하기</button>
+            <Link to="/goods/1">
+              <button className="gobutton">바로구매하기</button>
+            </Link>
           </div>
         </div>
       </div>
@@ -61,7 +64,9 @@ const MyCarousel = () => {
               <p className="name">프루트팝 롤리팝 막대사탕 2kg*6봉</p>
               <p className="period">유통기한:2024-08-26</p>
             </div>
-            <button className="gobutton">바로구매하기</button>
+            <Link to="/goods/2">
+              <button className="gobutton">바로구매하기</button>
+            </Link>
           </div>
         </div>
       </div>
@@ -81,7 +86,9 @@ const MyCarousel = () => {
               <p className="name">쵸키 밀크 30g*144개</p>
               <p className="period">유통기한:2024-08-26</p>
             </div>
-            <button className="gobutton">바로구매하기</button>
+            <Link to="/goods/3">
+              <button className="gobutton">바로구매하기</button>
+            </Link>
           </div>
         </div>
       </div>
